@@ -96,11 +96,13 @@ class AdminController extends Controller
             'image' => 'nullable|image|max:2048',
         ]);
 
-        $data = $request->except('image');
+	$data = $request->except('image');
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('actualites', 'public');
+            $image = $request->file('image');
+            $nom_image = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/actualites'), $nom_image);
+            $data['image'] = 'actualites/' . $nom_image;
         }
-
         Actualite::create($data);
         return redirect()->route('admin.actualites')->with('succes', 'تم اضافة الخبر بنجاح');
     }
