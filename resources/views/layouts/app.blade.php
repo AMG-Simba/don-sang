@@ -36,6 +36,17 @@
     </style>
     @yield('styles')
 </head>
+<div id="disclaimerPopup" style="position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#fff; border-radius:18px; max-width:500px; width:100%; padding:35px 30px; text-align:center; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+        <div style="width:70px; height:70px; background:#fef2f2; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+            <i class="fas fa-triangle-exclamation fa-2x" style="color:#C8102E;"></i>
+        </div>
+        <h4 class="fw-bold mb-3">تنبيه مهم</h4>
+        <p class="text-muted mb-2">هذا الموقع هو <strong>مشروع تعليمي</strong> أنجز في إطار دراسي، وليس الموقع الرسمي للوكالة المغربية للدم ومشتقاته.</p>
+        <p class="text-muted small mb-4">Ce site est un projet académique réalisé à des fins éducatives. Il ne s'agit pas du site officiel de l'AMSD. Aucune donnée saisie n'est réelle ni traitée officiellement.</p>
+        <button onclick="document.getElementById('disclaimerPopup').style.display='none'" class="btn btn-rouge btn-lg w-100" style="border-radius:25px;">فهمت، دخول للموقع</button>
+    </div>
+</div>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-amsd sticky-top">
